@@ -29,7 +29,7 @@ Within your repo select the `Actions` tab. Create a new workflow and paste the f
 
 ```
 on: [push]
-name: Deploy Hugo
+name: Deploy Hugo to Firebase
 jobs:
   build:
     runs-on: ubuntu-latest
