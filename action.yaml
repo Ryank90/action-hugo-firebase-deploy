@@ -1,0 +1,15 @@
+name: "Hugo and Firebase"
+description: "Builds the Hugo site and deploys to Firebase Hosting."
+branding:
+  icon: "code"
+  color: "gray-dark"
+inputs:
+    firebase-token:
+      description: "Firebase token (see README for support)."
+      required: true
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.firebase-token }}
+    - ${{ inputs.alias }}
