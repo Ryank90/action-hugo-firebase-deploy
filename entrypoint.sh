@@ -12,4 +12,9 @@ ALIAS=${2:-alias}
 
 # Publish to Google Firebase.
 firebase use --token $FIREBASE_DEPLOY_TOKEN $ALIAS
-firebase deploy -m "Trigger: $GITHUB_EVENT_NAME, commit SHA: $GITHUB_SHA" --non-interactive --token $FIREBASE_DEPLOY_TOKEN
+firebase deploy -m "
+  Successful Deployment: 
+  Event: $GITHUB_EVENT_NAME,
+  Commit SHA: $GITHUB_SHA,
+  User: $GITHUB_ACTOR
+" --non-interactive --token $FIREBASE_DEPLOY_TOKEN
