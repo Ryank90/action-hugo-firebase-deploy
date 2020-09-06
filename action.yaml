@@ -13,3 +13,4 @@ runs:
   args:
     - ${{ inputs.firebase-token }}
     - ${{ inputs.alias }}
+    - ${{ inputs.hugoParams }}

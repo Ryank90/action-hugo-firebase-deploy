@@ -41,6 +41,7 @@ jobs:
       with:
         firebase-token: ${{ secrets.firebase_token }}
         alias: ${{ alias }} // Optional
+        hugoParams: {{ hugoParams }} // Optional
 ```
 
 Save and you are ready to push code to your repo and have it deployed.
