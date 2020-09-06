@@ -41,7 +41,7 @@ jobs:
       with:
         firebase-token: ${{ secrets.firebase_token }}
         alias: ${{ alias }} // Optional
-        hugoParams: {{ hugoParams }} // Optional
+        hugo-params: -D // Optional. Any params for the `hugo` command. [Refer doc here](https://gohugo.io/commands/hugo/) 
 ```
 
 Save and you are ready to push code to your repo and have it deployed.
