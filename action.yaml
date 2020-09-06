@@ -7,10 +7,13 @@ inputs:
     firebase-token:
       description: "Firebase token (see README for support)."
       required: true
+    hugo-params:
+      description: "Build params for the hugo command."
+      required: false
 runs:
   using: "docker"
   image: "Dockerfile"
   args:
     - ${{ inputs.firebase-token }}
     - ${{ inputs.alias }}
-    - ${{ inputs.hugoParams }}
+    - ${{ inputs.hugo-params }}

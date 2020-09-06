@@ -3,12 +3,13 @@
 # Output versions.
 hugo version
 
-# Build the Hugo site.
-hugo ${3:-hugoParams}
-
 # Retrieve the input arguments/parameters.
 FIREBASE_DEPLOY_TOKEN=$1
 ALIAS=${2:-alias}
+HUGO_PARAMS=${3:-hugo-params}
+
+# Build the Hugo site.
+hugo $HUGO_PARAMS
 
 # Publish to Google Firebase.
 firebase use --token $FIREBASE_DEPLOY_TOKEN $ALIAS
