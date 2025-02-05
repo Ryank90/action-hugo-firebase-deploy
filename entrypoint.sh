@@ -1,15 +1,20 @@
 #!bin/sh -x
 
 # Retrieve the input arguments/parameters.
-FIREBASE_DEPLOY_TOKEN=${1:-firebase-token}
-ALIAS=${2:-alias}
-HUGO_PARAMS=${3:-hugo-params}
+FIREBASE_DEPLOY_TOKEN=${1:-firebaseToken}
+FIREBASE_SERVICE_ACCOUNT=${2:-firebaseServiceAccount}
+PROJECT_ID=${3:-projectId}
+HUGO_PARAMS=${4:-hugoParams}
 
 # Build the Hugo site.
 hugo $HUGO_PARAMS
 
 # Publish to Google Firebase.
-firebase use --token $FIREBASE_DEPLOY_TOKEN $ALIAS
+
+echo $FIREBASE_SERVICE_ACCOUNT > credentials.json
+GOOGLE_APPLICATION_CREDENTIALS=credentials.json
+
+# firebase use --token $FIREBASE_DEPLOY_TOKEN $PROJECT_ID
 firebase deploy -m "
   Successful Deployment: 
   Event: $GITHUB_EVENT_NAME,

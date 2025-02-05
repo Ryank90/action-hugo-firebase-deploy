@@ -4,19 +4,24 @@ branding:
   icon: "code"
   color: "gray-dark"
 inputs:
-    firebase-token:
+    firebaseToken:
       description: "Firebase token (see README for support)."
-      required: true
-    alias:
-      description: "Firebase project name (see README for support)"
       required: false
-    hugo-params:
+    firebaseServiceAccount:
+      description: "Firebase service account JSON."
+      required: false
+    projectId:
+      description: "The project to deploy to."
+      required: false
+    hugoParams:
       description: "Build params for the hugo command."
       required: false
+      default: "-D"
 runs:
   using: "docker"
   image: "Dockerfile"
   args:
-    - ${{ inputs.firebase-token }}
-    - ${{ inputs.alias }}
-    - ${{ inputs.hugo-params }}
+    - ${{ inputs.firebaseToken }}
+    - ${{ inputs.firebaseServiceAccount }}
+    - ${{ inputs.projectId }}
+    - ${{ inputs.hugoParams }}

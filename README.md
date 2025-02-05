@@ -40,7 +40,7 @@ jobs:
     - uses: ryank90/action-hugo-firebase-deploy@master
       with:
         firebase-token: ${{ secrets.firebase_token }}
-        alias: ${{ alias }} // Optional
+        alias: ${{ secrets.alias }} // Optional. Should be the Firebase project name.
         hugo-params: -D // Optional. Any params for the `hugo` command. [Refer doc here](https://gohugo.io/commands/hugo/) 
 ```
 
