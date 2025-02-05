@@ -7,7 +7,6 @@ HUGO_PARAMS=${3:-hugo-params}
 
 # Build the Hugo site.
 echo "Building the Hugo site..."
-hugo -D
 hugo $HUGO_PARAMS
 
 # Publish to Google Firebase.
