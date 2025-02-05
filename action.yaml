@@ -4,12 +4,9 @@ branding:
   icon: "code"
   color: "gray-dark"
 inputs:
-    firebaseToken:
-      description: "Firebase token (see README for support)."
-      required: false
     firebaseServiceAccount:
       description: "Firebase service account JSON."
-      required: false
+      required: true
     projectId:
       description: "The project to deploy to."
       required: false
@@ -21,7 +18,6 @@ runs:
   using: "docker"
   image: "Dockerfile"
   args:
-    - ${{ inputs.firebaseToken }}
     - ${{ inputs.firebaseServiceAccount }}
     - ${{ inputs.projectId }}
     - ${{ inputs.hugoParams }}
