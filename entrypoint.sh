@@ -9,7 +9,7 @@ HUGO_PARAMS=${3:-hugoParams}
 hugo $HUGO_PARAMS
 
 # Publish to Google Firebase.
-echo "$FIREBASE_SERVICE_ACCOUNT" > credentials.json
+echo -n $FIREBASE_SERVICE_ACCOUNT > credentials.json
 export GOOGLE_APPLICATION_CREDENTIALS=credentials.json
 
 firebase deploy -m "
