@@ -5,12 +5,11 @@ The following Github Action will successfully build and deploy your Hugo static-
 **Pre-requisites**
 
 - You will need a Firebase Project. If you haven't already got one you can easily get one here: [Firebase Console](https://console.firebase.google.com/)
-- You will need a Firebase Token in-order for this to run.
+- You will need a Google Service Account in-order for this to be successfully deployed.
 
 ## Getting Started
 
-
-You will need firebase tools installed on your local machine to obtain a firebase token. If you haven't got it installed then you can install it by running `npm install -g firebase-tools`.
+You will need to generate a Google Service Account.
 
 * Log in to Firebase (setup on your local machine) using `firebase login`, which opens a browser where you can select your account. Use `firebase logout` in case you are already logged in but to the wrong account.
 * In the root of your Hugo project, initialize the Firebase project with the `firebase init` command. From here:
@@ -39,9 +38,9 @@ jobs:
         submodules: true
     - uses: ryank90/action-hugo-firebase-deploy@master
       with:
-        firebase-token: ${{ secrets.firebase_token }}
-        alias: ${{ secrets.alias }} // Optional. Should be the Firebase project name.
-        hugo-params: -D // Optional. Any params for the `hugo` command. [Refer doc here](https://gohugo.io/commands/hugo/) 
+        firebaseServiceAccount: ${{ secrets.firebase_service_account }}
+        projectId: ${{ secrets.firebase_project_name }}
+        hugoParams: -D
 ```
 
 Save and you are ready to push code to your repo and have it deployed.
