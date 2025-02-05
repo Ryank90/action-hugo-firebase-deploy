@@ -7,6 +7,9 @@ inputs:
     firebase-token:
       description: "Firebase token (see README for support)."
       required: true
+    alias:
+      description: "Firebase project name (see README for support)"
+      required: false
     hugo-params:
       description: "Build params for the hugo command."
       required: false
