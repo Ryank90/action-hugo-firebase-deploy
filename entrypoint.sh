@@ -6,11 +6,7 @@ ALIAS=${2:-alias}
 HUGO_PARAMS=${3:-hugo-params}
 
 # Build the Hugo site.
-echo "Building the Hugo site..."
 hugo $HUGO_PARAMS
-
-pwd
-ls -ld
 
 # Publish to Google Firebase.
 firebase use --token $FIREBASE_DEPLOY_TOKEN $ALIAS
