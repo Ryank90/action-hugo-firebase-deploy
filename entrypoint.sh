@@ -9,9 +9,11 @@ HUGO_PARAMS=${3:-hugoParams}
 hugo $HUGO_PARAMS
 
 # Publish to Google Firebase.
-echo -n $FIREBASE_SERVICE_ACCOUNT > credentials.json
+echo -n $FIREBASE_SERVICE_ACCOUNT | base64 --decode > credentials.json
 export GOOGLE_APPLICATION_CREDENTIALS="$(pwd)/credentials.json"
 cat "$(pwd)/credentials.json"
+
+firebase use $PROJECT_ID
 
 firebase deploy -m "
   Successful Deployment: 
@@ -19,3 +21,5 @@ firebase deploy -m "
   Commit SHA: $GITHUB_SHA,
   User: $GITHUB_ACTOR
 " --non-interactive --only hosting
+
+rm "$(pwd)/credentials.json"
