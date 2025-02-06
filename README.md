@@ -24,7 +24,7 @@ You will need to generate a Google Service Account.
 
 ## Setting up Actions
 
-Within your repo select the `Actions` tab. Create a new workflow and paste the following:
+Within your repo select the `Actions` tab. Create a new workflow and paste the following code:
 
 ```
 on: [push]
@@ -43,4 +43,15 @@ jobs:
         hugoParams: -D
 ```
 
-Save and you are ready to push code to your repo and have it deployed.
+Save and you are ready to push code to your repo and have it automatically deployed.
+
+## Options
+
+`firebaseServiceAccount` _{string}_ required
+This is a Google service account JSON key that has been base64 encoded.
+
+`projectId` _{string}_
+This is your Firebase project ID that can be found from within the Firebase console.
+
+`hugoParams` _{string}_
+These are your hugo parameters that you would like to pass. It defaults to `-D` which will built your site ready for deployment although you can pass further parameters. See Hugo documentation for more information on what is available here.
