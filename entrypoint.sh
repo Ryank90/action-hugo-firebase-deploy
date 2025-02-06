@@ -11,7 +11,6 @@ hugo $HUGO_PARAMS
 # Publish to Google Firebase.
 echo -n $FIREBASE_SERVICE_ACCOUNT | base64 --decode > credentials.json
 export GOOGLE_APPLICATION_CREDENTIALS="$(pwd)/credentials.json"
-cat "$(pwd)/credentials.json"
 
 firebase use $PROJECT_ID
 
