@@ -5,7 +5,7 @@ The following Github Action will successfully build and deploy your Hugo static-
 **Pre-requisites**
 
 - You will need a Firebase Project. If you haven't already got one you can easily get one here: [Firebase Console](https://console.firebase.google.com/)
-- You will need a Google Service Account in-order for this to be successfully deployed.
+- You will need a Google Service Account setup in-order for your site to be successfully deployed.
 
 ## Getting Started
 
@@ -48,7 +48,9 @@ Save and you are ready to push code to your repo and have it automatically deplo
 ## Options
 
 `firebaseServiceAccount` _{string}_ required
-This is a Google service account JSON key that has been base64 encoded.
+This is a Google service account JSON key that has been base64 encoded. Once you have got your JSON key configured and downloaded you can run `` on your mac to base64 encode it ready for uploading into Github.
+
+It's important to ensure you set this up as an encrypted secret within Github. You can do that here: https://github.com/USERNAME/REPOSITORY/settings/secrets.
 
 `projectId` _{string}_
 This is your Firebase project ID that can be found from within the Firebase console.
